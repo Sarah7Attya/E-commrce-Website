@@ -1,0 +1,141 @@
+<div class="container">
+  <form
+    class="mt-4"
+    [formGroup]="updateProducts"
+    (ngSubmit)="handleUpdateProducts()"
+  >
+    <!-- title -->
+    <div class="row">
+      <div class="col col-md-6">
+        <label for="title" class="form-label">Product Title</label>
+        <input
+          type="text"
+          class="form-control mb-3"
+          placeholder="Enter product title"
+          required
+          name="title"
+          formControlName="title"
+        />
+        <!-- <div
+          class="alert alert-danger"
+          *ngIf="isSubmitted && productData?.['title']?.invalid"
+        >
+          Product Title is Required
+        </div> -->
+      </div>
+    </div>
+    <!-- description -->
+    <div class="row">
+      <div class="col col-md-6">
+        <label for="desc" class="form-label">Product Description</label>
+        <input
+          type="text"
+          class="form-control mb-3"
+          placeholder="Enter product description"
+          required
+          name="desc"
+          formControlName="desc"
+        />
+        <!-- <div
+          class="alert alert-danger"
+          *ngIf="isSubmitted && productData?.['desc']?.invalid"
+        >
+          Product Description is Required
+        </div> -->
+      </div>
+    </div>
+    <!-- categories -->
+    <div class="row">
+      <div class="col col-md-6">
+        <label for="categories" class="form-label"
+          >Product Category Keyword</label
+        >
+        <input
+          type="text"
+          class="form-control mb-3"
+          placeholder="Enter product category keyword"
+          required
+          name="categories"
+          formControlName="categories"
+        />
+        <!-- <div id="emailHelp" class="form-text">
+          * Add keywords that describe the product with a space between each
+          keyword. (tshirt jeans ,etc...)
+        </div>
+        <div
+          class="alert alert-danger"
+          *ngIf="isSubmitted && productData?.['categories']?.invalid"
+        >
+          Product Categories is Required
+        </div> -->
+      </div>
+    </div>
+    <!-- size -->
+    <div class="row">
+      <div class="col col-md-6 mt-3">
+        <label for="size" class="form-label">Product Sizes Keyword</label>
+
+        <input
+          type="text"
+          class="form-control mb-3"
+          placeholder="Enter product size keyword"
+          required
+          name="size"
+          formControlName="size"
+        />
+
+        <div id="emailHelp" class="form-text">
+          * Add keywords that describe the product with a space between each
+          keyword. (s m ,etc...)
+        </div>
+        <!-- <div
+          class="alert alert-danger"
+          *ngIf="isSubmitted && productData?.['size']?.invalid"
+        >
+          Product Size is Required
+        </div> -->
+      </div>
+    </div>
+    <!-- price -->
+    <div class="row">
+      <div class="col col-md-6 mt-3">
+        <label for="price" class="form-label">Product Price</label>
+        <input
+          type="number"
+          class="form-control mb-3"
+          placeholder="Enter product price"
+          required
+          name="price"
+          formControlName="price"
+        />
+        <!-- <div
+          class="alert alert-danger"
+          *ngIf="isSubmitted && productData?.['price']?.invalid"
+        >
+          Product Price is Required
+        </div> -->
+      </div>
+    </div>
+    <!-- img -->
+    <div class="row">
+      <div class="col col-md-6">
+        <label for="price" class="form-label">Product Image</label>
+        <input
+          type="file"
+          class="form-control mb-3"
+          required
+          name="productImg"
+          formControlName="productImg"
+          (change)="handleImg($event)"
+        />
+        <!-- <div
+          class="alert alert-danger"
+          *ngIf="isSubmitted && productData?.['productImg']?.invalid"
+        >
+          Product Image is Required
+        </div> -->
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Update Product</button>
+  </form>
+</div>

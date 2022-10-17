@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row justify-content-center mt-4">
+    <div class="col-6" *ngFor="let user of users" routerLink="">
+      <div class="card">
+        <div class="card-body">
+          <h3>Name: {{ user.name }}</h3>
+          <p>ID: {{ user._id }}</p>
+          <p>Email: {{ user.email }}</p>
+          <div>
+             <a
+               routerLink="/dashboard/users/update/{{ user._id }}"
+               class="card-button"
+               style="border-radius: none"
+               >Edit</a
+             >
+          </div>
+          <div>
+             <a
+               routerLink="/dashboard/users/delete/{{ user._id }}"
+               class="card-button"
+               >Delete</a
+             >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

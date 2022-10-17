@@ -1,0 +1,182 @@
+<div class="container">
+  <form class="mt-4" #register="ngForm" (ngSubmit)="handleSubmit(register)">
+    <!-- name -->
+    <div class="row">
+      <div class="col col-md-6">
+        <label for="name" class="form-label">Name</label>
+        <input
+          type="text"
+          class="form-control mb-3"
+          placeholder="Enter your name"
+          aria-label="First name"
+          required
+          minlength="4"
+          [(ngModel)]="registerModel.name"
+          name="name"
+          #name="ngModel"
+        />
+        <div
+          class="alert alert-danger"
+          *ngIf="name.invalid && (register.submitted || name.dirty)"
+        >
+          <div *ngIf="name.errors?.['required']">Name is Required</div>
+          <div *ngIf="name.errors?.['minlength']">Min Length is Required</div>
+        </div>
+      </div>
+    </div>
+    <!-- email -->
+    <div class="row">
+      <div class="col col-md-6">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label"
+            >Email address</label
+          >
+          <input
+            type="email"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+            placeholder="Enter your email"
+            required
+            [(ngModel)]="registerModel.email"
+            name="email"
+            #email="ngModel"
+            email
+          />
+          <div id="emailHelp" class="form-text">
+            We'll never share your email with anyone else.
+          </div>
+          <div
+            class="alert alert-danger"
+            *ngIf="email.invalid && (register.submitted || email.dirty)"
+          >
+            <div *ngIf="email.errors?.['required']">Email is Required</div>
+            <div *ngIf="email.errors?.['email']">Email is Invalid</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- password -->
+    <div class="row">
+      <div class="col col-md-6">
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="exampleInputPassword1"
+            placeholder="Enter your password"
+            required
+            minlength="8"
+            maxlength="20"
+            [(ngModel)]="registerModel.password"
+            name="password"
+            #password="ngModel"
+          />
+          <div
+            class="alert alert-danger"
+            *ngIf="password.invalid && (register.submitted || password.dirty)"
+          >
+            <div *ngIf="password.errors?.['required']">
+              Password is Required
+            </div>
+            <div *ngIf="password.errors?.['minlength']">
+              Min. 8 Letters is Required
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- age -->
+    <div class="row">
+      <div class="col col-md-6">
+        <label for="age" class="form-label">Age</label>
+        <input
+          type="number"
+          class="form-control mb-3"
+          placeholder="Enter your age"
+          required
+          min="14"
+          max="120"
+          name="age"
+          [(ngModel)]="registerModel.age"
+          #age="ngModel"
+        />
+        <div
+          class="alert alert-danger"
+          *ngIf="age.invalid && (register.submitted || age.dirty)"
+        >
+          <div *ngIf="age.errors?.['required']">Age is Required</div>
+          <div *ngIf="age.errors?.['min']">[Min Age = 14] is Required</div>
+          <div *ngIf="age.errors?.['max']">[Max Age = 120] is Required</div>
+        </div>
+      </div>
+    </div>
+    <!-- phone -->
+    <div class="row">
+      <div class="col col-md-6">
+        <label for="phone" class="form-label">Phone</label>
+        <input
+          type="text"
+          class="form-control mb-3"
+          placeholder="Enter your number"
+          required
+          minlength="10"
+          maxlength="10"
+          [(ngModel)]="registerModel.phone"
+          name="phone"
+          #phone="ngModel"
+        />
+        <div
+          class="alert alert-danger"
+          *ngIf="phone.invalid && (register.submitted || phone.dirty)"
+        >
+          <div *ngIf="phone.errors?.['required']">Phone is Required</div>
+          <div *ngIf="phone.errors?.['minlength']">
+            [EG - Number] is Required
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- gender -->
+    <div class="row">
+      <div class="col col-md-6">
+        <label for="name" class="form-label">Gender</label>
+        <div class="row">
+          <div class="col col-md-6">
+            <select
+              name="gender"
+              class="form-control mb-3"
+              [(ngModel)]="registerModel.usergender"
+              #gender="ngModel"
+            >
+              <option value="null" disabled selected>Select your gender</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- type -->
+    <!-- <div class="row">
+      <div class="col col-md-6">
+        <label for="name" class="form-label">Account Type</label>
+        <div class="row">
+          <div class="col col-md-6">
+            <select
+              name="isAdmin"
+              class="form-control mb-3"
+              [(ngModel)]="registerModel.isAdmin"
+              #isAdmin="ngModel"
+            >
+              <option [value]="!admin" selected>User</option>
+              <option [value]="admin">Admin</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <button type="submit" class="btn btn-primary">Register</button>
+  </form>
+</div>

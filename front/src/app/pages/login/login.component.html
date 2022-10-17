@@ -1,0 +1,96 @@
+<!-- <div class="container">
+  <form class="mt-4" #login="ngForm" (ngSubmit)="handleLogin(login)">
+    <div class="row">
+      <div class="col col-md-6">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label"
+            >Email address</label
+          >
+          <input
+            type="email"
+            class="form-control"
+            id="exampleInputEmail1"
+            placeholder="Enter your email"
+            required
+            name="email"
+            [(ngModel)]="loginModel.email"
+            #emaill="ngModel"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col col-md-6">
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="exampleInputPassword1"
+            placeholder="Enter your password"
+            required
+            name="password"
+            [(ngModel)]="loginModel.password"
+            #password="ngModel"
+          />
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Log in</button>
+  </form>
+</div> -->
+
+<div class="container">
+  <form class="mt-4" [formGroup]="loginForm" (ngSubmit)="handleLogin()">
+    <!-- email -->
+    <div class="row">
+      <div class="col col-md-6">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label"
+            >Email address</label
+          >
+          <input
+            type="email"
+            class="form-control"
+            id="exampleInputEmail1"
+            placeholder="Enter your email"
+            required
+            name="email"
+            formControlName="email"
+          />
+          <div class="alert alert-danger" *ngIf="isSubmitted && userData?.['email']?.invalid && userData?.['email']?.dirty ">
+            <div *ngIf="userData?.['email']?.errors?.['required']">
+              Email is Required
+            </div>
+            <div *ngIf="userData?.['email']?.errors?.['email']">
+              Invalid Email
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- password -->
+    <div class="row">
+      <div class="col col-md-6">
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="exampleInputPassword1"
+            placeholder="Enter your password"
+            required
+            name="password"
+            formControlName="password"
+          />
+           <div class="alert alert-danger" *ngIf="isSubmitted && userData?.['password']?.invalid && userData?.['password']?.dirty ">
+            <div *ngIf="userData?.['password']?.errors?.['required']">
+              Password is Required
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Log in</button>
+  </form>
+</div>
